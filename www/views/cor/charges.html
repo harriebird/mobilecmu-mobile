@@ -1,0 +1,25 @@
+<ion-view view-title="Registration Details" hide-back-button="true">
+  <ion-content has-tabs="true" has-header="true" class="light-bg" has-bouncing="true">
+    <ion-refresher pulling-text="Reload" on-refresh="getCorData(currentUser.prisms_id, semester)"></ion-refresher>
+    <ion-list class="list">
+      <ion-item class="item padding-medium" ng-repeat="charge in cor_charges">
+        <h3 class="text-left">{{charge.AcctName}}</h3>
+        <h2 class="text-right">{{charge.Debit | number:2}}</h2>
+      </ion-item>
+      <ion-item class="item padding-medium">
+        <h2 class="text-right">Total Assessment: {{sumCharges(cor_charges) | number:2}}</h2>
+        <h2 class="text-right">Total Payment: {{cor_info.TotalPayment | number:2}}</h2>
+        <h2 class="text-right">Outstanding Balance: {{(sumCharges(cor_charges) - cor_info.TotalPayment) | number:2}}</h2>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  <!-- <ion-footer-bar class="bar-footer bar-footer-fix bar-balanced">
+    <label class="item item-input item-select">
+      <div class="input-label">
+        <h3><i class="icon ion-android-calendar"></i> SEMESTER</h3>
+      </div>
+      <select ng-change="getCorData(currentUser.prisms_id, semester)" ng-model="semester" ng-options="sem as sem.AcademicYear+' '+sem.SchoolTerm for sem in semesters">
+      </select>
+    </label>
+  </ion-footer-bar> -->
+</ion-view>

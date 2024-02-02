@@ -1,0 +1,126 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #f9f9f9 !default;
+$stable:                          #aab6b6 !default;
+$positive:                        #0c67bd !default;
+$calm:                            #00c2e4 !default;
+$balanced:                        #00ae54 !default;
+$energized:                       #f0c30f !default;
+$assertive:                       #e1403d !default;
+$royal:                           #9a58b5 !default;
+$dark:                            #1f1f1f !default;
+*/
+
+$light:                           #FAFAFB !default;
+$stable:                          #ECF0F1 !default;
+$positive:                        #34495E !default;
+$calm:                            #3498DB !default;
+$balanced:                        #00AE54 !default;
+$energized:                       #F1C40F !default;
+$assertive:                       #E74C3C !default;
+$royal:                           #9B59B6 !default;
+$dark:                            #1F1F1F !default;
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+
+$sidemenu_top: #2ecc71;
+$sidemenu_bottom: #27ae60;
+$sidemenu_transparency: rgba(255,255,255,0.4);
+
+.side-menu-gradient {
+  background: -webkit-linear-gradient(left top, $sidemenu_top, $sidemenu_bottom);
+  background: -o-linear-gradient(bottom right, $sidemenu_top, $sidemenu_bottom);
+  background: -moz-linear-gradient(bottom right, $sidemenu_top, $sidemenu_bottom);
+  background: linear-gradient(to bottom right, $sidemenu_top, $sidemenu_bottom);
+}
+
+$bg_top: #ecf0f1;
+$bg_bottom: #bdc3c7;
+
+.light-bg {
+  background: -webkit-linear-gradient(left bottom, $bg_top, $bg_bottom);
+  background: -o-linear-gradient(left top, $bg_top, $bg_bottom);
+  background: -moz-linear-gradient(top bottom, $bg_top, $bg_bottom);
+  background: linear-gradient(to top bottom, $bg_top, $bg_bottom);
+}
+
+.profile-image {
+  img {
+    border-radius: 50%;
+    border: 4px solid $sidemenu_transparency;
+  }
+}
+
+.side-menu-item {
+  background: none;
+  color: white;
+  font-weight: 400;
+  border: 0px;
+  .item-content {
+    background: none;
+    &.activated {
+      background: $sidemenu_transparency;
+    }
+  }
+}
+
+.passed {
+  background-color: #bcf2a9;
+}
+.excel {
+  background-color: #8edbf1;
+}
+.failed {
+  background-color: #ff9ca5;
+}
+.inc {
+  background-color: #fff7a9;
+}
+
+.bar-footer label {
+  width: 100%;
+}
+
+.padding-none {
+  padding: 0px;
+}
+
+.padding-none-left {
+  padding-left: 0px;
+}
+
+.padding-none-bottom {
+  padding-bottom: 0px;
+}
+
+.padding-none-top {
+  padding-top: 0px;
+}
+
+.padding-small {
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.padding-medium {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.incBar {
+  width: 100%;
+  background-color: #95a5a6;//#7f8c8d;
+}
+
+.incDays {
+  height: 21px;
+  // background-color: #4CAF50;
+}

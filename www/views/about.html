@@ -1,0 +1,42 @@
+<ion-view view-title="About mobileCMU" has-header>
+  <ion-nav-bar class="bar-energized">
+    <ion-nav-back-button class="button-clear">
+      <i class="icon ion-android-arrow-back"></i> Back
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content class="light-bg">
+    <ion-list>
+      <ion-item class="item-body item-borderless">
+        <div class="text-center">
+            <img src="img/logo.png" width="100px" height="100px">
+            <h1 class="dark">mobileCMU</h1>
+            <h3 class="dark">
+              mobileCMU is a mobile application that provides a friendly interaction from the student portal of Central Mindanao University.
+            </h3>
+            <h2 class="dark">
+              <i class="icon ion-code"></i> with <i class="icon ion-heart"></i> by &lt;/harriebird&gt;
+            </h2>
+            <h2>
+              Version 1.0
+            </h2>
+        </div>
+        <div ng-if="curview.stateName=='about'">
+          <button class="button button-block button-balanced" ui-sref="usage">
+            <i class="icon ion-information-circled"></i> How to Use
+          </button>
+          <button class="button button-block button-calm" ui-sref="author">
+            <i class="icon ion-android-person"></i> About the Developer
+          </button>
+        </div>
+        <div ng-if="curview.stateName=='side.about'">
+          <button class="button button-block button-balanced" ui-sref="side.usage">
+            <i class="icon ion-information-circled"></i> How to Use
+          </button>
+          <button class="button button-block button-calm" ui-sref="side.author">
+            <i class="icon ion-android-person"></i> About the Developer
+          </button>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

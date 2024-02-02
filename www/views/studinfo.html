@@ -1,0 +1,41 @@
+<ion-view view-title="Student Information" hide-back-button="true">
+  <ion-content has-header="true" class="dark-bg" has-bouncing="true">
+    <ion-refresher pulling-text="Reload" on-refresh="getInfo(currentUser.prisms_id)"></ion-refresher>
+    <ion-list class="list">
+      <ion-item class="item item-dark text-center profile-image">
+        <img style="width: 180px; height; 180px;" data-ng-src="data:image/png;base64,{{profpic}}">
+        <h3 class="energized">{{stud.StudentNo}}</h3>
+        <h2 class="balanced">{{stud.LastName}}, {{stud.FirstName}} {{stud.Middlename}}</h2>
+      </ion-item>
+      <ion-item class="item item-dark padding-medium">
+        <div class="row padding-none">
+          <div class="col padding-none item-icon-left">
+            <h4 class="energized">Gender:</h4><h3 class="balanced"><span ng-if="stud.Gender == 'M'">Male</span><span ng-if="stud.Gender == 'F'">Female</span></h3>
+          </div>
+          <div class="col padding-none">
+            <h4 class="energized">Birthdate:</h4><h3 class="balanced">{{toISO(stud.DateOfBirth) | date: 'longDate'}}</h3>
+          </div>
+        </div>
+      </ion-item>
+      <ion-item class="item item-dark padding-medium">
+        <h4 class="energized">College:</h4><h3 class="balanced">{{stud.CollegeName}}</h3>
+      </ion-item>
+      <ion-item class="item item-dark padding-medium">
+        <h4 class="energized">Academic Program:</h4><h3 class="balanced">{{stud.ProgName}}</h3>
+      </ion-item>
+      <ion-item class="item item-dark padding-medium" ng-hide="stud.MajorDiscDesc == null">
+        <h4 class="energized">Major Study:</h4><h3 class="balanced">{{stud.MajorDiscDesc}}</h3>
+      </ion-item>
+      <ion-item class="item item-dark padding-medium">
+        <div class="row padding-none">
+          <div class="col padding-none item-icon-left">
+            <h4 class="energized">Year Level:</h4><h3 class="balanced">{{stud.YearLevel}}</h3>
+          </div>
+          <div class="col padding-none">
+            <h4 class="energized">Date of Admission:</h4><h3 class="balanced">{{toISO(stud.DateAdmitted) | date: 'longDate'}}</h3>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

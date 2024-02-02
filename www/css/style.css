@@ -1,0 +1,84 @@
+/*
+  CMU SIS Mobile custom css
+  version 0.0.1
+  by Paul Harriet S. Asinero
+*/
+
+.profile-picture {
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  width: 12rem;
+  height: 12rem;
+  margin: 0.5rem auto 1rem auto;
+  background-color: #F8F8F8;
+  text-align: center;
+  color: #ccc;
+  position: relative;
+  background-position: center center;
+  background-size: auto 100%;
+  border: 6px solid #f9f9f9;
+}
+
+.bar-footer label {
+  width: 100%;
+}
+
+.padding-none {
+  padding: 0px;
+}
+
+.padding-none-left {
+  padding-left: 0px;
+}
+
+.padding-none-bottom {
+  padding-bottom: 0px;
+}
+
+.padding-small {
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.padding-medium {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/*.platform-android .nav-bar-tabs-top.hide ~ .view-container .tabs-top .tabs {
+  top: 44px;
+}*/
+
+/*.tabs {
+  bottom: 0;
+}*/
+
+.platform-firefoxos .bar-footer-fix {
+  bottom: 48px !important;
+}
+
+.platform-windowsphone .bar-footer-fix {
+  bottom: 48px !important;
+}
+
+.platform-ios .bar-footer-fix {
+  bottom: 48px !important;
+}
+
+/*.platform-browser .bar-footer-fix {
+  bottom: 48px !important;
+}*/
+
+.passed {
+  background-color: #bcf2a9;
+}
+.excel {
+  background-color: #8edbf1;
+}
+.failed {
+  background-color: #ff9ca5;
+}
+.inc {
+  background-color: #fff7a9;
+}

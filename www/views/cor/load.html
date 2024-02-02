@@ -1,0 +1,27 @@
+<ion-view view-title="Registration Details" hide-back-button="true">
+  <ion-content has-header="true" class="light-bg" has-bouncing="true">
+    <ion-refresher pulling-text="Reload" on-refresh="getCorData(currentUser.prisms_id, semester)"></ion-refresher>
+    <ion-list class="list">
+      <ion-item class="item padding" ng-repeat="subject in cor_load">
+        <div class="row padding-none">
+          <h3 class="col-33 text-left padding-none-left">{{subject.SubjectCode}} ({{subject.AcadUnits | number:2}})</h3>
+          <h3 class="col-66 text-left padding-none-left">Section: {{subject.SectionName}}</h3>
+        </div>
+        <h4>{{subject.SubjectTitle}}</h4>
+        <div class="row padding-none">
+          <h4 class="col-66 text-left padding-none-left">Schedule: {{subject.Sched_1}}</h4>
+          <h4 class="col-33 text-left padding-none-left">Room: {{subject.RoomName}}</h4>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  <!-- <ion-footer-bar class="bar-footer bar-footer-fix bar-balanced">
+    <label class="item item-input item-select">
+      <div class="input-label">
+        <h3><i class="icon ion-android-calendar"></i> SEMESTER</h3>
+      </div>
+      <select ng-change="getCorData(currentUser.prisms_id, semester)" ng-model="semester" ng-options="sem as sem.AcademicYear+' '+sem.SchoolTerm for sem in semesters">
+      </select>
+    </label>
+  </ion-footer-bar> -->
+</ion-view>

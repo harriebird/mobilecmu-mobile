@@ -1,0 +1,19 @@
+{
+  "name": "cmusis",
+  "app_id": "com.harriebird.cmusis",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+
+  ],
+  "proxies": [
+    {
+      "path": "/",
+      "proxyUrl": "http://localhost/"
+    }
+  ]
+}

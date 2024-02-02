@@ -1,0 +1,30 @@
+<ion-view view-title="Subsidiary Ledger" hide-back-button="true">
+  <ion-content class="light-bg" has-header="true">
+    <ion-refresher pulling-text="Reload" on-refresh="getLegderInfo(currentUser.prisms_id,semester)"></ion-refresher>
+    <ion-list class="list">
+      <ion-item class="item padding" ng-class="[{'failed': trans.Debit > trans.Credit},{'excel': trans.Debit < trans.Credit}]" ng-repeat="trans in ledger_info">
+        <div class="row padding-none">
+          <h2 class="text-left padding-none">Reference No: {{trans.ReferenceNo}}</h2>
+        </div>
+        <h3 class="text-left padding-none">Transaction Date: {{toISO(trans.TransDate) | date: 'MMMM d, y h:mm a'}}</h3>
+        <div class="row padding-none">
+          <h4 class="col text-left padding-none">Debit: {{trans.Debit | number:2}}</h4>
+          <h4 class="col text-left padding-none">Credit: {{trans.Credit | number:2}}</h4>
+          <h3 class="col text-left padding-none">Bal: {{trans.Balance | number:2}}</h3>
+        </div>
+      </ion-item>
+      <ion-item class="item padding-medium">
+        <h2 class="text-right">Term Balance: {{ledger_info[ledger_info.length - 1].Balance | number:2}}</h2>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  <ion-footer-bar class="bar-balanced">
+    <label class="item item-input item-select">
+      <div class="input-label">
+        <h3><i class="icon ion-android-calendar"></i> SEMESTER</h3>
+      </div>
+      <select ng-change="getLegderInfo(currentUser.prisms_id,semester)" ng-model="semester" ng-options="sem.TermID as sem.AcademicYear+' '+sem.SchoolTerm for sem in semesters">
+      </select>
+    </label>
+  </ion-footer-bar>
+</ion-view>

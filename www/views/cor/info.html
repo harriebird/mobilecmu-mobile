@@ -1,0 +1,49 @@
+<ion-view view-title="Registration Details" hide-back-button="true">
+  <ion-content has-tabs="true" has-header="true" class="light-bg" has-bouncing="true">
+    <ion-refresher pulling-text="Reload" on-refresh="getCorData(currentUser.prisms_id, semester)"></ion-refresher>
+    <div class="list">
+      <div class="item item-balanced text-center">
+        <h2 class="text-center light">Registration No: {{cor_info.RegID}}</h2>
+      </div>
+      <div class="item padding-medium" ng-hide="cor_info.ORNo.length < 1">
+        <h2 class="text-left">Official Receipt</h2>
+        <h2 class="text-right">{{cor_info.ORNo}}</h2>
+      </div>
+      <div class="item padding-medium" ng-hide="cor_info.ProvName == null">
+        <h2 class="text-left">Scholarship</h2>
+        <h2 class="text-right">{{cor_info.ProvName}}</h2>
+      </div>
+      <div class="item padding-medium">
+        <h2 class="text-left">Date Validated</h2>
+        <h2 class="text-right">{{toISO(cor_info.ValidationDate) | date: 'MMMM d, y h:mm a'}}</h2>
+      </div>
+      <div class="item padding-medium">
+        <h2 class="text-left">Units Enrolled</h2>
+        <h2 class="text-right">{{sumUnits(cor_load)}} units</h2>
+      </div>
+      <div class="item padding-medium">
+        <h2 class="text-left">Total Assessment</h2>
+        <h2 class="text-right">{{sumCharges(cor_charges) | number:2}}</h2>
+      </div>
+      <div class="item padding-medium">
+        <h2 class="text-left">Total Payment</h2>
+        <h2 class="text-right">{{cor_info.TotalPayment | number:2}}</h2>
+      </div>
+      <div class="item padding-medium">
+        <div clas="row">
+          <h2 class="col text-left">Outstanding Balance</h2>
+          <h2 class="col text-right">{{(sumCharges(cor_charges) - cor_info.TotalPayment) | number:2}}</h2>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+  <!-- <ion-footer-bar class="bar-footer bar-footer-fix bar-balanced">
+    <label class="item item-input item-select">
+      <div class="input-label">
+        <h3><i class="icon ion-android-calendar"></i> SEMESTER</h3>
+      </div>
+      <select ng-change="getCorData(currentUser.prisms_id, semester)" ng-model="semester" ng-options="sem as sem.AcademicYear+' '+sem.SchoolTerm for sem in semesters">
+      </select>
+    </label>
+  </ion-footer-bar> -->
+</ion-view>

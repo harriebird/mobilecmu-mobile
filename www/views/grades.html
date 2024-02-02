@@ -1,0 +1,60 @@
+<ion-view view-title="Report of Grades" hide-back-button="true">
+  <ion-content class="light-bg" has-header="true">
+    <ion-refresher pulling-text="Reload" on-refresh="getSemGrades(currentUser.prisms_id, semester)"></ion-refresher>
+    <ion-list class="list">
+      <ion-item class="item item-avatar padding light" ng-class="[{'failed': (grade.Midterm == 5 && grade.Final == '') || grade.Final == 5 || grade.ReExam == 5},{'excel': (grade.Midterm >= 1.00 && grade.Midterm <= 2 && grade.Final == '') || (grade.Final >= 1.00 && grade.Final <= 2) || (grade.ReExam >= 1.00 && grade.ReExam <= 2)},{'passed': (grade.Midterm > 2 && grade.Midterm <= 3.00 && grade.Final == '') || (grade.Final > 2 && grade.Final <= 3.00) || (grade.ReExam > 2 && grade.ReExam <= 3.00)},{'inc': grade.Final == 'INC' && grade.ReExam == ''}]" ng-repeat="grade in grades">
+        <div class="row">
+          <div class="col-20">
+            <ionic-letter-avatar data="{{grade.SubjectCode}}" charcount="1" shape="round"></ionic-letter-avatar>
+          </div>
+          <div class="col-80">
+            <div class="row padding-none">
+              <h2 class="col text-left padding-none">{{grade.SubjectCode}}</h2>
+              <h2 class="col text-left padding-none">Units: {{grade.AcadUnits | number:2}}</h2>
+            </div>
+            <div class="row padding-none">
+              <p class="col text-left padding-none">{{grade.SubjectTitle}}</p>
+            </div>
+            <div class="row padding-none">
+              <h2 class="col text-left padding-none" ng-hide="grade.Final == 'INC'">Midterm: {{grade.Midterm}}</h2>
+              <h2 class="col text-left padding-none">Final: {{grade.Final}}</h2>
+              <h2 class="col text-left padding-none" ng-show="grade.Final == 'INC'">ReExam: {{grade.ReExam}}</h2>
+            </div>
+          </div>
+        </div>
+      </ion-item>
+      <ion-item class="item padding" ng-hide="grades.length < 1">
+        <h2 class="text-right">Total Subjects: {{grades.length}}</h2>
+        <h2 class="text-right">Total Units: {{getUnits(grades)}}</h2>
+        <h2 class="text-right">Total Credit Earned: {{getEUnits(grades)}}</h2>
+        <h2 class="text-right">General Weighted Average: {{getGwa(grades) | number:2}}</h2>
+      </ion-item>
+    </ion-list>
+    <div class="padding" ng-if="grades.length < 1">
+      <ion-list class="list card">
+        <ion-item class="item text-center assertive-bg">
+          <h2 class="light">No Grades Available</h2>
+        </ion-item>
+        <ion-item class="item item-body assertive-bg">
+          <p>
+            <div class="text-center">
+              <i class="icon ion-eye-disabled light" style="font-size:128px"></i>
+            </div>
+            <div class="text-center">
+              <h2 class="light">Grades for your subjects this semester was not yet uploaded to the system. Please try again later.</h2>
+            </div>
+          </p>
+        </ion-item>
+      </ion-list>
+    </div>
+  </ion-content>
+  <ion-footer-bar class="bar-balanced">
+    <label class="item item-input item-select">
+      <div class="input-label">
+        <h3><i class="icon ion-android-calendar"></i> SEMESTER</h3>
+      </div>
+      <select ng-change="getSemGrades(currentUser.prisms_id,semester)" ng-model="semester" ng-options="sem.TermID as sem.AcademicYear+' '+sem.SchoolTerm for sem in semesters">
+      </select>
+    </label>
+  </ion-footer-bar>
+</ion-view>

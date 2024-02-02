@@ -1,0 +1,45 @@
+<ion-view view-title="Settings" has-header>
+  <ion-nav-bar class="bar-energized">
+    <ion-nav-back-button class="button-clear">
+      <i class="icon ion-android-arrow-back"></i> Back
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content class="light-bg">
+    <ion-list>
+      <ion-toggle ng-model="api.override" ng-checked="api.override" toggle-class="toggle-balanced">Override mobileCMU API URL</ion-toggle>
+      <ion-item class="item">
+        <span class="input-label">mobileCMU API URL</span>
+        <label class="item item-input">
+          <i class="icon ion-android-globe placeholder-icon"></i>
+          <input type="text" value="{{api.api_url}}" ng-model="api.api_url" ng-disabled="!(api.override)">
+        </label>
+        <!-- <button class="button button-block button-balanced" ng-click="saveconfig()" ng-disabled="!(api.override)">
+          <i class="icon ion-checkmark"></i> Apply Changes
+        </button>
+        <button class="button button-block but button-calm" ng-click="saveconfig()">
+          <i class="icon ion-checkmark"></i> Restore Default
+        </button> -->
+        <div class="button-bar">
+          <button class="button button-block button-balanced" ng-click="saveconfig()" ng-disabled="!(api.override)">
+            <i class="icon ion-checkmark"></i> Apply
+          </button>
+          <button class="button button-block but button-calm" ng-click="restore()">
+            <i class="icon ion-android-refresh"></i> Restore
+          </button>
+        </div>
+      </ion-item>
+      <ion-item class="item-body assertive-bg icon-left" ng-hide="!(api.override)">
+        <div class="row">
+          <div class="col-25">
+            <i class="icon ion-android-warning light" style="font-size: 80px;"></i>
+          </div>
+          <div class="col-75">
+            <h2 class="light" style="margin-top: 0px !important;">
+              Changing of API URL may cause this application not to work. Please change this only if adviced by the MIS Office.
+            </h2>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

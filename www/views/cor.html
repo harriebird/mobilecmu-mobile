@@ -1,0 +1,20 @@
+<ion-tabs class="tabs-icon-top tabs-balanced tabs-color-active-energized">
+  <ion-tab title="General Info" icon="ion-information-circled" ui-sref="side.cor.info">
+    <ion-nav-view name="corInfo"></ion-nav-view>
+  </ion-tab>
+  <ion-tab title="Subject Load" icon="ion-android-calendar" ui-sref="side.cor.load">
+    <ion-nav-view name="corLoad"></ion-nav-view>
+  </ion-tab>
+  <ion-tab title="School Charges" icon="ion-android-list" ui-sref="side.cor.charges">
+    <ion-nav-view name="corCharges"></ion-nav-view>
+  </ion-tab>
+</ion-tabs>
+<ion-footer-bar class="bar-footer bar-footer-fix bar-balanced">
+  <label class="item item-input item-select">
+    <div class="input-label">
+      <h3><i class="icon ion-android-calendar"></i> SEMESTER</h3>
+    </div>
+    <select ng-change="getCorData(currentUser.prisms_id, semester)" ng-model="semester" ng-options="sem as sem.AcademicYear+' '+sem.SchoolTerm for sem in semesters">
+    </select>
+  </label>
+</ion-footer-bar>
